@@ -24,4 +24,7 @@ class ProfilesControllerTest < ActionController::TestCase
 		assert_equal users(:jason), status.user
 	end
   end
+  test "that a profile page works" do
+	get '/jasonseifer'
+	assert_response :success
 end
