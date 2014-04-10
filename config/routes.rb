@@ -1,4 +1,5 @@
 Treebook::Application.routes.draw do
+  get "profiles/show"
   devise_for :users
   
   devise_scope :user do
@@ -6,6 +7,8 @@ Treebook::Application.routes.draw do
 	get 'login', to: 'devise/sessions#new', as: :login
 	get 'logout', to: 'devise/sessions#destroy', as: :logout
   end
+  
+  get '/:id', to: 'profiles#show'
   
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed
